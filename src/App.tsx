@@ -1,24 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import { Header, Title, Container } from "@mantine/core"
 import './App.css';
+import City from "./components/City";
+import WalletConnect from "./components/WalletConnect";
+import WalletInstallation from "./components/WalletInstallation";
+import { useCity } from "./hooks/useCity";
 
-function App() {
+const App = () =>{
+  const { ethereum } = window as any
+  const { buildings } = useCity()
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header
+        height={60}
+        px="xl"
+        sx={{
+          display: "flex",
+          position: "fixed",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <Title>City Token</Title>
+        <WalletConnect />
+      </Header>
+      <Container p="lg">
+        {!ethereum ? <WalletInstallation /> : <City buildings={buildings}/>}
+      </Container>
     </div>
   );
 }

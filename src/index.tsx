@@ -3,13 +3,28 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Config, DAppProvider, Goerli } from '@usedapp/core';
+import { MantineProvider } from '@mantine/core';
+import { REACT_APP_GOERLI_RPC_URL } from './consts';
+
+const dappConfig: Config = {
+  readOnlyChainId: Goerli.chainId,
+  readOnlyUrls: {
+    [Goerli.chainId]:
+    REACT_APP_GOERLI_RPC_URL,
+  },
+};
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <DAppProvider config={dappConfig}>
+      <MantineProvider withGlobalStyles withNormalizeCSS>
+      <App />
+      </MantineProvider>
+    </DAppProvider>
   </React.StrictMode>
 );
 
