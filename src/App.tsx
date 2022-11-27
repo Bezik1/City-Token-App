@@ -1,4 +1,4 @@
-import { Header, Title, Container } from "@mantine/core"
+import { Header, Title, Container, Card, Badge, Text } from "@mantine/core"
 import './App.css';
 import City from "./components/City";
 import WalletConnect from "./components/WalletConnect";
@@ -26,6 +26,36 @@ const App = () =>{
       </Header>
       <Container p="lg">
         {!ethereum ? <WalletInstallation /> : <City buildings={buildings}/>}
+      </Container>
+      <Container 
+        p="lg"
+        sx={{
+          zIndex: 1,
+          pointerEvents: "none",
+          marginTop: 20,
+          marginLeft: 20,
+          maxWidth: 350,
+          height: "100vh",
+          display: "flex",
+          alignItems: "left",
+          gap: 10,
+          flexDirection: "column", 
+        }}
+      >
+        {buildings.map((building, index) =>(
+          <Card 
+            key={index} 
+            shadow="md" 
+            sx={{ 
+              width: 300,
+              height: 400,
+              padding: 10
+            }}>
+            <Badge>Floor #{index}</Badge>
+            <Text weight={"bolder"}>{building.ownerName}</Text>
+            <Text>{building.message}</Text>
+          </Card>
+        ))}
       </Container>
     </div>
   );

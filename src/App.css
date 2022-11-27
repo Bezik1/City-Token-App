@@ -4,7 +4,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: -1;
   background: linear-gradient(180deg, #b8d1fc 0%, #f2f0da 80%);
   background: radial-gradient(
     at 50% 75%,
