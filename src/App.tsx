@@ -32,7 +32,7 @@ const App = () =>{
         sx={{
           zIndex: 1,
           pointerEvents: "none",
-          marginTop: 20,
+          marginTop: 100,
           marginLeft: 20,
           maxWidth: 350,
           height: "100vh",
@@ -43,7 +43,8 @@ const App = () =>{
         }}
       >
         {buildings.map((building, index) =>(
-          <Card 
+          <Card
+            color="dark"
             key={index} 
             shadow="md" 
             sx={{ 

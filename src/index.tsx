@@ -21,7 +21,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <DAppProvider config={dappConfig}>
-      <MantineProvider withGlobalStyles withNormalizeCSS>
+      <MantineProvider theme={{ colorScheme: 'dark' }} withGlobalStyles withNormalizeCSS>
       <App />
       </MantineProvider>
     </DAppProvider>
