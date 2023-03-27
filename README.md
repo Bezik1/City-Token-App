@@ -1,4 +1,4 @@
-# BEZ Token App :earth_africa:
+# City Token App :earth_africa:
 Decentralized app based on ethereum crypto using hardhat, ethers.js, react-three/fiber MetaMask and react. In application you can buy some CityTokens paying by ethereum.
 
 ## :credit_card: CityToken
